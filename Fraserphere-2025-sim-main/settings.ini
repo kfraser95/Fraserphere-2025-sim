@@ -1,0 +1,22 @@
+Fraserphere-2025-sim/
+├── README.md
+├── LICENSE
+├── CITATION.cff
+├── requirements.txt
+├── src/
+│   ├── beam_propagation.py
+│   ├── link_budget.py
+│   ├── radiation_transport.py
+│   ├── thermal_fem.py
+│   └── error_correction.py
+├── data/
+│   └── iluka_ysz_coa.pdf
+├── results/
+│   ├── plots/
+│   │   ├── spot_size.png
+│   │   └── ber_vs_distance.png
+│   └── tables/
+│       ├── link_budget.csv
+│       └── radiation_damage.csv
+└── tests/
+    └── test_link_budget.py
