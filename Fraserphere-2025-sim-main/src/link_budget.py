@@ -27,7 +27,7 @@ P_r_50AU_dBm = 10 * np.log10(P_rN * 1000)
 print(f"50 AU: {P_r_50AU_dBm:.1f} dBm")
 
 # === SAVE TO CSV ===
-os.makedirs("results/tables", exist_ok=True)
+os.makedirs("../results/tables", exist_ok=True)
 data = [
     {
         "Distance_AU": 1,
@@ -45,5 +45,5 @@ data = [
     }
 ]
 df = pd.DataFrame(data)
-df.to_csv("results/tables/link_budget.csv", index=False)
-print("Saved: results/tables/link_budget.csv")
+df.to_csv("../results/tables/link_budget.csv", index=False)
+print("Saved: ../results/tables/link_budget.csv")

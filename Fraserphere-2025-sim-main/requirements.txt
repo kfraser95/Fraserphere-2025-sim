@@ -1,6 +1,0 @@
-numpy
-sympy
-matplotlib
-pyffs
-pyldpc
-pandas
