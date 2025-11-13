@@ -1,0 +1,14 @@
+@software{fraserphere_2025,
+  author = {Your Name},
+  title = {Fraserphere Simulation Suite},
+  year = {2025},
+  publisher = {Zenodo},
+  doi = {10.5281/zenodo.13742965}
+}
+
+---
+
+#### `LICENSE` (MIT)
+```text
+MIT License © 2025 Kyle Fraser
+Permission is hereby granted... (standard MIT text)
