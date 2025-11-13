@@ -6,7 +6,7 @@
 
 This repository contains simulations used to validate the Fraserphere photonic relay system for 100 AU deep-space chains.
 
-A word from the auther, No idea how patent laws work and there was too much red tape sorrouding it where  after looking into it I just decided to have fun and publish these findings. Now we can let smarter people come along and make it. So for the sake of publishing all ideas and concepts are considered published and free use on the condition that I, Kyle Ross Fraser receive accredation and recognition for my contributions. 
+A word from the author, No idea how patent laws work and there was too much red tape sorrounding it where after looking into it I just decided to have fun and publish these findings. Now we can let smarter people come along and make it. So for the sake of publishing all ideas and concepts are considered published and free to use on the condition that I, Kyle Ross Fraser receive accredation and recognition for my contributions. 
 
 
 The data streaming part of the system incorporates the following technologies, 
@@ -28,7 +28,7 @@ $$P_r = P_t \cdot G_t \cdot G_r \cdot \left(\frac{\lambda}{4\pi d}\right)^2$$
 
 Where:
 - **P_t** = 10 W transmit power (10 W VCSEL phased array)
-- **G_t, G_r** = 10^(108/10) ≈ 6.31×10¹¹ (108 dBi receiver and transmitter gains from 15 cm apertures)
+- **G_t, G_r** = 10^(108/10) ≈ 6.31×10¹⁰ (108 dBi receiver and transmitter gains from 15 cm apertures)
 - **λ** = 1550 nm (C-band telecom wavelength)
 - **d** = 1.496×10¹¹ m per hop (1 AU)
 
@@ -56,7 +56,7 @@ All calculations are deterministic (no Monte Carlo) and assume guidance with the
 | Module | Tool | Output |
 |-------|------|--------|
 | Beam Propagation | `pyFFS` + PROPER | 7.2 cm spot @ 1.4 m | 
-| Link Budget | SymPy | –136.2 dBm @ 1 AU |
+| Link Budget | SymPy | 105.7 dBm @ 1 AU |
 | Radiation Transport | GEANT4 + SRIM | 0.42% swelling |
 | Thermal FEM | COMSOL export | ΔT < 8 K |
 | Error Correction | PyLDPC | BER < 10⁻⁹ post-10 krad |
