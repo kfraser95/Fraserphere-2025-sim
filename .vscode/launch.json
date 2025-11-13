@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Link Budget",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/Fraserphere-2025-sim-main/src/link_budget.py",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Run Beam Propagation",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/Fraserphere-2025-sim-main/src/beam_propagation.py",
+      "console": "integratedTerminal"
+    }
+  ]
+}

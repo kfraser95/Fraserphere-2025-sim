@@ -1,0 +1,48 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Link Budget",
+      "type": "shell",
+      "command": "python",
+      "args": ["Fraserphere-2025-sim-main/src/link_budget.py"],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Run Beam Propagation",
+      "type": "shell",
+      "command": "python",
+      "args": ["Fraserphere-2025-sim-main/src/beam_propagation.py"],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Run All Scripts",
+      "type": "shell",
+      "command": "python",
+      "args": ["Fraserphere-2025-sim-main/src/link_budget.py"],
+      "dependsOn": ["Run Beam Propagation"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+  ]
+}

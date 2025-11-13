@@ -1,5 +1,10 @@
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import os
+
+os.makedirs("../results/plots", exist_ok=True)
 
 w0 = 2e-3      # 2 mm waist
 lam = 1550e-9

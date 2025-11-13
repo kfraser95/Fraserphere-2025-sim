@@ -1,0 +1,14 @@
+name: fraserphere
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - sympy
+  - matplotlib
+  - pandas
+  - pip:
+    - pyldpc
+    - git+https://github.com/imagingofthings/pyFFS.git
