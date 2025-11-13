@@ -1,49 +1,46 @@
 import numpy as np
 import pandas as pd
 import os
+from sympy import symbols, pi, log
 
-# === LINK BUDGET ===
-P_t = 10.0              # W
-G_t_dB = G_r_dB = 108.0 # dB
-G_amp_dB = 60.0         # dB/hop (Optimized Design)
-lam = 1550e-9           # m
-d = 1.496e11            # 1 AU
+# Core Params (Corrected for Optical)
+lam = 1550e-9  # m
+d_1AU = 1.496e11  # m
+P_t_W = 10.0  # W per node
+P_t_dBm = 10 * np.log10(P_t_W * 1000)  # 40 dBm
+D = 0.15  # m aperture diameter
+A = np.pi * (D / 2)**2
+G_linear = 4 * np.pi * A / lam**2
+G_dB = 10 * np.log10(G_linear)
+total_G_dB = 2 * G_dB  # Tx + Rx
+FSPL_dB = 20 * np.log10(4 * np.pi * d_1AU / lam)
 
-# Convert gains from dB to linear
-G_t = 10**(G_t_dB/10)
-G_r = 10**(G_r_dB/10)
+# P_r per hop (constant)
+P_r_dBm = P_t_dBm + total_G_dB - FSPL_dB
+P_r_W = 10**((P_r_dBm - 30) / 10) / 1000  # W from dBm
 
-# === 1 AU: First Hop ===
-P_r1 = P_t * G_t * G_r * (lam / (4*np.pi*d))**2
-P_r_1AU_dBm = 10 * np.log10(P_r1 * 1000)
+# Required G_amp
+req_G_amp_dB = P_t_dBm - P_r_dBm + 3  # 3 dB margin
 
-print(f"1 AU: {P_r_1AU_dBm:.1f} dBm")
+# Margin (APD sens -90 dBm for 10 Gbps w/ FEC)
+P_sens_dBm = -90
+margin_dB = P_r_dBm - P_sens_dBm
 
-# === 50 AU: After 49 Amplified Hops ===
-N_hops = 50
-P_rN = P_r1 * (10**(G_amp_dB / 10))**(N_hops - 1)
-P_r_50AU_dBm = 10 * np.log10(P_rN * 1000)
+# Outputs
+num_hops = 100
+print(f"P_r per hop: {P_r_dBm:.1f} dBm")
+print(f"Required G_amp: {req_G_amp_dB:.1f} dB")
+print(f"Margin per hop: {margin_dB:.1f} dB")
 
-print(f"50 AU: {P_r_50AU_dBm:.1f} dBm")
+# Symbolic Req Gain
+P_t_sym, P_r_sym = symbols('P_t P_r')
+req_gain_sym = 10 * log(P_t_sym / P_r_sym, 10)
+print(f"Symbolic req gain: {req_gain_sym.subs({P_t_sym: P_t_W, P_r_sym: P_r_W}).evalf():.1f} dB")
 
-# === SAVE TO CSV ===
-os.makedirs("../results/tables", exist_ok=True)
+# Save CSV
+os.makedirs("results/tables", exist_ok=True)
 data = [
-    {
-        "Distance_AU": 1,
-        "P_r_1AU_dBm": round(P_r_1AU_dBm, 1),
-        "P_r_1AU_W": P_r1,
-        "P_r_50AU_dBm": None,
-        "P_r_50AU_W": None
-    },
-    {
-        "Distance_AU": 50,
-        "P_r_1AU_dBm": None,
-        "P_r_1AU_W": None,
-        "P_r_50AU_dBm": round(P_r_50AU_dBm, 1),
-        "P_r_50AU_W": P_rN
-    }
+    {"Hops": 1, "P_r_dBm": round(P_r_dBm, 1), "P_r_W": P_r_W, "Margin_dB": round(margin_dB, 1), "Req_G_amp_dB": round(req_G_amp_dB, 1)},
+    {"Hops": num_hops, "P_r_dBm": round(P_r_dBm, 1), "P_r_W": P_r_W, "Margin_dB": round(margin_dB, 1), "Req_G_amp_dB": round(req_G_amp_dB, 1)}
 ]
-df = pd.DataFrame(data)
-df.to_csv("../results/tables/link_budget.csv", index=False)
-print("Saved: ../results/tables/link_budget.csv")
+pd.DataFrame(data).to_csv("results/tables/link_budget.csv", index=False)

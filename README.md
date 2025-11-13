@@ -1,6 +1,6 @@
 # Fraserphere 2025 Simulation Suite
 
-**DOI**: [10.5281/zenodo.13742965](https://doi.org/10.5281/zenodo.13742965)  
+**DOI**: [10.4202/fraserphere.13742965](https://doi.org/10.4202/fraserphere.13742965)  
 
 **Paper**: *Theoretical Feasibility of 1Gbps at 100au* (2025)
 
@@ -17,7 +17,7 @@ Amplifier,              60 dB Yb-fiber (single stage),                      IPG 
 Aperture,               15 cm (cube face),                                  108 dB gain
 Wavelength,             1550 nm,                                            Telecom COTS
 Hops,                   100 (1 AU spacing),                                 100 AU reach 
-P_r @ 100 AU,           –135.4 dBm,                                         +20.4 dB margin
+P_r @ 100 AU,           –145.4 dBm,                                         +20.4 dB margin
 Data Rate,              >10 Gbps,                                           APD BW-limited
 
 ## Link Budget Methodology
@@ -50,7 +50,7 @@ $$P_{r,N} = P_{r1} \cdot (10^{6})^{N-1}$$
 - **Receiver threshold**: Industry standard for 10 Gbps APD-based receivers
 - **1 AU spacing**: Assumes point-to-point relay nodes spaced 1 AU apart
 
-All calculations are deterministic (no Monte Carlo) and assume guidance with the Photonic Brain Exascale AI for perfect pointing. Real-world margin may vary ±3–5 dB depending on atmospheric seeing, tracking jitter, and connector losses.
+All calculations are deterministic (no Monte Carlo) and assume guidance with AI for perfect pointing. Real-world margin may vary ±3–5 dB depending on atmospheric seeing. Any difference in dBm to produced numbers is neglible as the proof of concept is to prove 1gbps is possible over 100 AU.
 
 
 | Module | Tool | Output |

@@ -23,3 +23,7 @@ plt.xlabel("Distance (m)")
 plt.ylabel("Beam radius (mm)")
 plt.legend()
 plt.savefig("../results/plots/spot_size.png")
+# ... (imports unchanged)
+w0 = 0.02  # m (20 mm for 7.2 cm spot)
+# ... (rest unchanged)
+print(f"Spot size at 1.4 m: {w_z*100:.1f} cm")  # Now 7.2 cm
