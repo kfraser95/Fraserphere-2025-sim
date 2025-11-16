@@ -1,46 +1,37 @@
 import numpy as np
-import pandas as pd
-import os
-from sympy import symbols, pi, log
 
-# Core Params (Corrected for Optical)
+# Report parameters
+c = 3e8  # m/s
 lam = 1550e-9  # m
-d_1AU = 1.496e11  # m
-P_t_W = 10.0  # W per node
+d_AU = 1.495978707e11  # m
+P_t_W = 10.0  # W
 P_t_dBm = 10 * np.log10(P_t_W * 1000)  # 40 dBm
-D = 0.15  # m aperture diameter
-A = np.pi * (D / 2)**2
-G_linear = 4 * np.pi * A / lam**2
-G_dB = 10 * np.log10(G_linear)
-total_G_dB = 2 * G_dB  # Tx + Rx
-FSPL_dB = 20 * np.log10(4 * np.pi * d_1AU / lam)
+D = 0.15  # m
+eta = 0.8
+G_linear = eta * (np.pi * D / lam)**2
+G_dB = 10 * np.log10(G_linear)  # 108.69 dBi
+total_G_dB = 2 * G_dB  # 217.38 dB
+FSPL_dB = 20 * np.log10(4 * np.pi * d_AU / lam)  # 361.68 dB
 
-# P_r per hop (constant)
-P_r_dBm = P_t_dBm + total_G_dB - FSPL_dB
-P_r_W = 10**((P_r_dBm - 30) / 10) / 1000  # W from dBm
+# Received power
+P_r_dBm = P_t_dBm + total_G_dB - FSPL_dB  # -104.30 dBm
 
-# Required G_amp
-req_G_amp_dB = P_t_dBm - P_r_dBm + 3  # 3 dB margin
+# Sensitivity
+P_sens_dBm = -50
 
-# Margin (APD sens -90 dBm for 10 Gbps w/ FEC)
-P_sens_dBm = -90
-margin_dB = P_r_dBm - P_sens_dBm
+# Margin without amp
+margin_no_amp_dB = P_r_dBm - P_sens_dBm  # -54.30 dB
 
-# Outputs
-num_hops = 100
-print(f"P_r per hop: {P_r_dBm:.1f} dBm")
-print(f"Required G_amp: {req_G_amp_dB:.1f} dB")
-print(f"Margin per hop: {margin_dB:.1f} dB")
+# Margins with preamp gains (60, 80, 100 dB)
+G_amp = [60, 80, 100]
+margins_with_amp = [P_r_dBm + g - P_sens_dBm for g in G_amp]  # [5.7, 25.7, 45.7] dB
 
-# Symbolic Req Gain
-P_t_sym, P_r_sym = symbols('P_t P_r')
-req_gain_sym = 10 * log(P_t_sym / P_r_sym, 10)
-print(f"Symbolic req gain: {req_gain_sym.subs({P_t_sym: P_t_W, P_r_sym: P_r_W}).evalf():.1f} dB")
-
-# Save CSV
-os.makedirs("results/tables", exist_ok=True)
-data = [
-    {"Hops": 1, "P_r_dBm": round(P_r_dBm, 1), "P_r_W": P_r_W, "Margin_dB": round(margin_dB, 1), "Req_G_amp_dB": round(req_G_amp_dB, 1)},
-    {"Hops": num_hops, "P_r_dBm": round(P_r_dBm, 1), "P_r_W": P_r_W, "Margin_dB": round(margin_dB, 1), "Req_G_amp_dB": round(req_G_amp_dB, 1)}
-]
-pd.DataFrame(data).to_csv("results/tables/link_budget.csv", index=False)
+# NF accumulation (Friis formula approximation for 100 hops)
+NF_dB = 4.0
+NF_lin = 10**(NF_dB / 10)  # 2.5119
+G_stage_dB = 30.0  # Example per stage (linear 1000)
+G_lin = 10**(G_stage_dB / 10)
+degrad_lin = (NF_lin - 1) / (G_lin - 1)  # Geometric sum ≈ 0.00151
+NF_total_lin = NF_lin + degrad_lin  # 2.5134 (ignores finite hops, but <0.00001 error)
+NF_total_dB = 10 * np.log10(NF_total_lin)  # 4.002 dB
+degradation_dB = NF_total_dB - NF_dB  # 0.002 dB
