@@ -1,6 +1,6 @@
 # Fraserphere 2025 Simulation Suit
 
-**DOI**: [10.4202/fraserphere.13742965](https://doi.org/10.4202/fraserphere.13742965)  
+**DOI**: [10.4202/fraserphere.13742965](https://doi.org/10.4202/fraserphere.13742965)    https://zenodo.org/records/17603813
 
 **Paper**: *Theoretical Feasibility of 1Gbps at 100au* (2025)
 
