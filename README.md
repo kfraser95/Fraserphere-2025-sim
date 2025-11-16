@@ -1,4 +1,4 @@
-# Fraserphere 2025 Simulation Suite
+# Fraserphere 2025 Simulation Suit
 
 **DOI**: [10.4202/fraserphere.13742965](https://doi.org/10.4202/fraserphere.13742965)  
 
