@@ -65,7 +65,7 @@ If you hit build errors, install system tools (e.g., Visual C++ on Windows) or u
 
 # Acknowledgements
 Thanks to open-source libraries (SymPy, NumPy, Matplotlib, PyLDPC, Torch) and conceptual inspirations from space agencies. Special thanks to xAI's @Grok for symbolic derivations, simulations, and collaborative refinement.
-References
+
 
 
 # Author information
