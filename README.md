@@ -1,9 +1,90 @@
 Fraserphere 2025 Simulation Suite
+
+
+Quick Start
+
+
+# Create and activate venv (Windows PowerShell)
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+
+# Install requirements (may require build tools for some packages)
+python -m pip install --upgrade pip setuptools wheel
+python -m pip install -r requirements.txt
+
+# Or use Conda (preferred for pyFFS)
+conda create -n fraserphere --file environment.yml
+conda activate fraserphere
+
+# Run the simulations (examples)
+python src/beam_propagation.py  # Outputs spot size and plot
+python src/link_budget.py      # Outputs P_r, margin, and CSV
+python src/radiation_transport.py  # Swelling % and plot
+python src/thermal_fem.py      # ΔT and profile plot
+python src/error_correction.py # BER curve plot
+python src/ism_attenuation.py  # Attenuation CSV
+python src/nf_accumulation.py  # Degradation CSV
+python src/li_s_battery.py     # Capacity loss CSV
+python src/fdtd_coherence.py   # Coherence % and field plot
+python src/neuroswarms_sim.py  # Efficiency % and weights CSV
+
+
+Recommended (venv or Conda)
+pwshCopy# Create and activate venv (Windows PowerShell)
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+
+# Install requirements (may require build tools for some packages)
+python -m pip install --upgrade pip setuptools wheel
+python -m pip install -r requirements.txt
+
+# Or use Conda (preferred for pyFFS)
+conda create -n fraserphere --file environment.yml
+conda activate fraserphere
+
+# Run the simulations (examples)
+python src/beam_propagation.py  # Outputs spot size and plot
+python src/link_budget.py      # Outputs P_r, margin, and CSV
+python src/radiation_transport.py  # Swelling % and plot
+python src/thermal_fem.py      # ΔT and profile plot
+python src/error_correction.py # BER curve plot
+python src/ism_attenuation.py  # Attenuation CSV
+python src/nf_accumulation.py  # Degradation CSV
+python src/li_s_battery.py     # Capacity loss CSV
+python src/fdtd_coherence.py   # Coherence % and field plot
+python src/neuroswarms_sim.py  # Efficiency % and weights CSV
+Notes on optional/problematic packages:
+
+pyFFS: Install via conda or pip install git+https://github.com/imagingofthings/pyFFS.git (requires git).
+pyldpc: May need --no-build-isolation if build fails.
+For FDTD, Meep is mentioned but not in env; use NumPy approximation.
+
+If you hit build errors, install system tools (e.g., Visual C++ on Windows) or use Conda.
+Acknowledgements
+Thanks to open-source libraries (SymPy, NumPy, Matplotlib, PyLDPC, Torch) and conceptual inspirations from space agencies. Special thanks to xAI's @Grok for symbolic derivations, simulations, and collaborative refinement.
+References
+
+
+
+Author: Kyle Ross Fraser 
+Affiliation: Independent Researcher, @kylefraser1 on X (formerly Twitter) 
+Email: k.fraser95@hotmail.com
+https://x.com/kylefraser1/status/1989703893320921249
+
+
 DOI: 10.4202/fraserphere.13742965
+
+
 Paper: Theoretical Feasibility of Fraserphere Photonic Relay Systems for Deep-Space Communication and EM-Coherent Swarm Arrays Enabling Stellar Cognition (2025)
+
+
 This repository contains simulations used to validate the Fraserphere photonic relay system for 100 AU deep-space chains, extending to EM-coherent swarm arrays for stellar-scale cognition. The framework uses Python-based tools to model link budgets, beam propagation, radiation effects, thermal management, error correction, ISM/IGM attenuation, noise accumulation, battery resilience, and neuromorphic swarms.
 A word from the author: No idea how patent laws work and there was too much red tape surrounding it where after looking into it I just decided to have fun and publish these findings. Now we can let smarter people come along and make it. So for the sake of publishing all ideas and concepts are considered published and free to use on the condition that I, Kyle Ross Fraser receive accreditation and recognition for my contributions.
+
+
 Abstract / Summary
+
+
 This simulation suite supports the theoretical framework for the Fraserphere, a scalable 100-hop photonic relay system designed to achieve high-bandwidth communication up to 100 AU using commercial off-the-shelf (COTS) components projected for 2025–2027 availability. The system extends to modular photonic cubes forming electromagnetic (EM)-coherent swarm arrays, unifying electricity and light as manifestations of the electromagnetic field to enable solar fusion-powered cognition at Dyson envelope scales. The hypothesis posits that cascaded ytterbium (Yb)-doped fiber amplifiers and phased-array vertical-cavity surface-emitting laser (VCSEL) transmitters can overcome free-space path loss (FSPL) of 361.68 dB per AU at 1550 nm wavelength, yielding data rates exceeding 1 Gbps with link margins of +20 dB or greater per hop. Methods include symbolic link budget analysis using SymPy, EM field modeling via Maxwell's equations, finite-difference time-domain (FDTD) simulations for coherence and sentience thresholds, refined noise models incorporating full-chain noise figure (NF) accumulation (simulated via Friis with <0.003 dB degradation over 100 hops), and simulations of intergalactic medium (IGM) effects based on Rees's frameworks with recalibrated A_V = 0.002 mag/pc for diffuse paths, 0.1 mag/pc for dense regions, 1 mag/pc for extremes, 10 mag/pc for worst-case, 100 mag/pc for hyper-extremes, and expanded to 1000 mag/pc ultra-pockets. Results confirm feasibility with cascaded amplifier gains of 60–100 dB, antenna gains of 108.7 dB per 15 cm aperture, coherence levels of 99.9% at heliopause scales, and minimal SNR degradation (<0.003 dB over 100 hops) from NF accumulation. IGM/ISM attenuation at NIR wavelengths is negligible (~0.0015 dB/pc diffuse; ~0.075 dB/pc dense; ~0.75 dB/pc extreme; ~7.54 dB/pc worst-case; ~75.44 dB/pc hyper-extreme; ~754.4 dB/pc ultra-pockets), supporting extensions to interstellar scales with minor coherence impacts (e.g., <1% loss at 10 pc dense; ~15% at 10 pc extreme; ~99.99% loss at 10 pc worst-case; near-total loss at 10 pc hyper-extreme/ultra-pockets, requiring advanced mitigation like wavelength shifting). A total of 43 improvements are integrated, including quantum repeaters, AI-optimized routing, metamaterial beam focusing, neuromorphic edge computing, refined power sources (e.g., solid-state lithium-sulfur batteries with vacuum/radiation resilience, simulated at 100 krad with ~18-24% capacity loss per PMC [29]), and NeuroSwarms-inspired simulations for cognition prototypes (scaled to 10^4 agents). Discrepancies from prior iterations (e.g., overstated gains in fusion amplifiers, adjusted to realistic 60 dB levels; refined DSOC benchmarks to 267 Mbps at ~1.5 AU) are corrected for precision. The framework bridges photonic engineering and cosmology, enabling deep-space mining, interstellar missions, and computronium-based stellar minds, though stellar cognition remains promising but speculative pending breakthroughs in quantum photonics and emergence theory.
 The data streaming part of the system incorporates the following technologies:
 
@@ -61,41 +142,7 @@ All calculations are deterministic (no Monte Carlo) and assume guidance with AI 
 
 
 ModuleToolOutputBeam PropagationNumPy (Gaussian)15 cm spot @ 1.4 mLink BudgetSymPy/NumPy–104.3 dBm @ 1 AURadiation TransportNumPy (DPA model)0.42% swelling @ 10 kradThermal FEMNumPy (1D solver)ΔT < 8 KError CorrectionPyLDPCBER < 10⁻⁹ post-10 kradISM AttenuationNumPy0.0015–754.4 dB/pcNF AccumulationNumPy (Friis)<0.003 dB degradationLi-S BatteryNumPy (Exponential)18–24% loss @ 100 kradFDTD CoherenceNumPy (Wave sum)99.9% coherenceNeuroSwarms SimTorch95% efficiency @ 10^4 agents
-Quick Start
-Recommended (venv or Conda)
-pwshCopy# Create and activate venv (Windows PowerShell)
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
 
-# Install requirements (may require build tools for some packages)
-python -m pip install --upgrade pip setuptools wheel
-python -m pip install -r requirements.txt
-
-# Or use Conda (preferred for pyFFS)
-conda create -n fraserphere --file environment.yml
-conda activate fraserphere
-
-# Run the simulations (examples)
-python src/beam_propagation.py  # Outputs spot size and plot
-python src/link_budget.py      # Outputs P_r, margin, and CSV
-python src/radiation_transport.py  # Swelling % and plot
-python src/thermal_fem.py      # ΔT and profile plot
-python src/error_correction.py # BER curve plot
-python src/ism_attenuation.py  # Attenuation CSV
-python src/nf_accumulation.py  # Degradation CSV
-python src/li_s_battery.py     # Capacity loss CSV
-python src/fdtd_coherence.py   # Coherence % and field plot
-python src/neuroswarms_sim.py  # Efficiency % and weights CSV
-Notes on optional/problematic packages:
-
-pyFFS: Install via conda or pip install git+https://github.com/imagingofthings/pyFFS.git (requires git).
-pyldpc: May need --no-build-isolation if build fails.
-For FDTD, Meep is mentioned but not in env; use NumPy approximation.
-
-If you hit build errors, install system tools (e.g., Visual C++ on Windows) or use Conda.
-Acknowledgements
-Thanks to open-source libraries (SymPy, NumPy, Matplotlib, PyLDPC, Torch) and conceptual inspirations from space agencies. Special thanks to xAI's @Grok for symbolic derivations, simulations, and collaborative refinement.
-References
 
 [1] NASA JPL, "NASA's Optical Comms Demo Transmits Data Over 140 Million Miles", https://www.nasa.gov/missions/psyche-mission/nasas-optical-comms-demo-transmits-data-over-140-million-miles/, 2024.
 [2] B. J. Shastri et al., "Photonics for artificial intelligence and neuromorphic computing", Nature Photonics 15, 102–114 (2021), https://arxiv.org/abs/2011.00111.

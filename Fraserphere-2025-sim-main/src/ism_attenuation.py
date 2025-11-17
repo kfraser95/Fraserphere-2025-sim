@@ -8,8 +8,8 @@ lam = 1.55e-6  # m
 exponent = 1.61
 mag_to_db = 4  # Approx factor
 
-# A_V levels (mag/pc)
-a_v_levels = [0.002, 0.1, 1, 10, 100, 1000]  # Diffuse to ultra
+# A_V levels (mag/pc) - convert to NumPy array for element-wise operations
+a_v_levels = np.array([0.002, 0.1, 1, 10, 100, 1000])  # Diffuse to ultra
 labels = ["Diffuse", "Dense", "Extreme", "Worst-case", "Hyper-extreme", "Ultra-pockets"]
 
 a_lambda = a_v_levels * (lam_v / lam)**exponent

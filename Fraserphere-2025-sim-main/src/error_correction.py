@@ -3,8 +3,8 @@ from pyldpc import make_ldpc, encode, decode, get_message
 import matplotlib.pyplot as plt
 import os
 
-# LDPC parameters (small for sim)
-n = 100  # Code length
+# LDPC parameters (small for sim; n must be divisible by d_c for regular codes)
+n = 102  # Adjusted: 102 / 6 = 17 (integer)
 d_v = 3  # Variable degree
 d_c = 6  # Check degree
 H, G = make_ldpc(n, d_v, d_c, systematic=True, sparse=True)
