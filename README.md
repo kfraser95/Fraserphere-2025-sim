@@ -61,7 +61,7 @@ For FDTD, Meep is mentioned but not in env; use NumPy approximation.
 
 If you hit build errors, install system tools (e.g., Visual C++ on Windows) or use Conda.
 Acknowledgements
-Thanks to open-source libraries (SymPy, NumPy, Matplotlib, PyLDPC, Torch) and conceptual inspirations from space agencies. Special thanks to xAI's @Grok for symbolic derivations, simulations, and collaborative refinement.
+Thanks to open-source libraries (pyFFS, SymPy, GEANT4, SRIM, COMSOL, PyLDPC, NumPy, Torch) and conceptual inspirations from space agencies. Special thanks to xAI's @Grok for symbolic derivations, simulations, and collaborative refinement.
 References
 
 
