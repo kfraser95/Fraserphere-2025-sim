@@ -60,12 +60,15 @@ pyldpc: May need --no-build-isolation if build fails.
 For FDTD, Meep is mentioned but not in env; use NumPy approximation.
 
 If you hit build errors, install system tools (e.g., Visual C++ on Windows) or use Conda.
-Acknowledgements
+
+
+
+# Acknowledgements
 Thanks to open-source libraries (SymPy, NumPy, Matplotlib, PyLDPC, Torch) and conceptual inspirations from space agencies. Special thanks to xAI's @Grok for symbolic derivations, simulations, and collaborative refinement.
 References
 
 
-
+# Author information
 Author: Kyle Ross Fraser 
 Affiliation: Independent Researcher, @kylefraser1 on X (formerly Twitter) 
 Email: k.fraser95@hotmail.com
@@ -75,6 +78,7 @@ https://x.com/kylefraser1/status/1989703893320921249
 DOI: 10.5281/zenodo.17625967
 
 
+#paper &abstract
 Paper: Theoretical Feasibility of Fraserphere Photonic Relay Systems for Deep-Space Communication and EM-Coherent Swarm Arrays Enabling Stellar Cognition (2025)
 
 
@@ -86,7 +90,8 @@ Abstract / Summary
 
 
 This simulation suite supports the theoretical framework for the Fraserphere, a scalable 100-hop photonic relay system designed to achieve high-bandwidth communication up to 100 AU using commercial off-the-shelf (COTS) components projected for 2025–2027 availability. The system extends to modular photonic cubes forming electromagnetic (EM)-coherent swarm arrays, unifying electricity and light as manifestations of the electromagnetic field to enable solar fusion-powered cognition at Dyson envelope scales. The hypothesis posits that cascaded ytterbium (Yb)-doped fiber amplifiers and phased-array vertical-cavity surface-emitting laser (VCSEL) transmitters can overcome free-space path loss (FSPL) of 361.68 dB per AU at 1550 nm wavelength, yielding data rates exceeding 1 Gbps with link margins of +20 dB or greater per hop. Methods include symbolic link budget analysis using SymPy, EM field modeling via Maxwell's equations, finite-difference time-domain (FDTD) simulations for coherence and sentience thresholds, refined noise models incorporating full-chain noise figure (NF) accumulation (simulated via Friis with <0.003 dB degradation over 100 hops), and simulations of intergalactic medium (IGM) effects based on Rees's frameworks with recalibrated A_V = 0.002 mag/pc for diffuse paths, 0.1 mag/pc for dense regions, 1 mag/pc for extremes, 10 mag/pc for worst-case, 100 mag/pc for hyper-extremes, and expanded to 1000 mag/pc ultra-pockets. Results confirm feasibility with cascaded amplifier gains of 60–100 dB, antenna gains of 108.7 dB per 15 cm aperture, coherence levels of 99.9% at heliopause scales, and minimal SNR degradation (<0.003 dB over 100 hops) from NF accumulation. IGM/ISM attenuation at NIR wavelengths is negligible (~0.0015 dB/pc diffuse; ~0.075 dB/pc dense; ~0.75 dB/pc extreme; ~7.54 dB/pc worst-case; ~75.44 dB/pc hyper-extreme; ~754.4 dB/pc ultra-pockets), supporting extensions to interstellar scales with minor coherence impacts (e.g., <1% loss at 10 pc dense; ~15% at 10 pc extreme; ~99.99% loss at 10 pc worst-case; near-total loss at 10 pc hyper-extreme/ultra-pockets, requiring advanced mitigation like wavelength shifting). A total of 43 improvements are integrated, including quantum repeaters, AI-optimized routing, metamaterial beam focusing, neuromorphic edge computing, refined power sources (e.g., solid-state lithium-sulfur batteries with vacuum/radiation resilience, simulated at 100 krad with ~18-24% capacity loss per PMC [29]), and NeuroSwarms-inspired simulations for cognition prototypes (scaled to 10^4 agents). Discrepancies from prior iterations (e.g., overstated gains in fusion amplifiers, adjusted to realistic 60 dB levels; refined DSOC benchmarks to 267 Mbps at ~1.5 AU) are corrected for precision. The framework bridges photonic engineering and cosmology, enabling deep-space mining, interstellar missions, and computronium-based stellar minds, though stellar cognition remains promising but speculative pending breakthroughs in quantum photonics and emergence theory.
-The data streaming part of the system incorporates the following technologies:
+
+# The data streaming part of the system incorporates the following technologies:
 
 
 
@@ -128,7 +133,7 @@ Beam spot diameter at aperture (1.4 m): ~15 cm (Gaussian model)
 Li-S capacity loss at 100 krad: 18–24%
 NeuroSwarms efficiency: 95% at 10^4 agents
 
-Data Sources & Justifications:
+# Data Sources & Justifications:
 
 VCSEL specs: Princeton Optronics phased array (2025 COTS, 10 W nominal)
 Yb-fiber amp: IPG Photonics YAR-100 (60 dB single-stage, cascaded to 100 dB)
@@ -192,7 +197,7 @@ ModuleToolOutputBeam PropagationNumPy (Gaussian)15 cm spot @ 1.4 mLink BudgetSym
 [46] Dust Extinction and Emission in a Clumpy Galactic Disk. An ..., https://arxiv.org/abs/1205.5483, 2012.
 [47] Dust Extinction and Emission in a Clumpy Galactic Disk. An ..., https://arxiv.org/pdf/1205.5483.pdf, 2012.
 
-Citation
+# Citation
 If you use this software, please cite it as below (from CITATION.cff):
 textCopycff-version: 1.2.0
 message: "If you use this software, please cite it as below."
