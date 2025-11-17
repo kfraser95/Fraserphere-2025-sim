@@ -199,7 +199,10 @@ message: "If you use this software, please cite it as below."
 authors:
   - family-names: "Fraser"
     given-names: "Kyle Ross"
-    orcid: "https://orcid.org/0009-0000-7397-2546"
+    x.comid: "https://x.com/kylefraser1"
+    orcid: "https://orcid.org/0009-0000-7397-2546"    
+  Acknowledgements Thanks to xAI's @Grok for symbolic derivations, simulations, and collaborative refinement."
+  
 title: "Fraserphere 2025 Simulation Suite"
 version: 1.0.0
 doi: 10.5281/zenodo.13742965
