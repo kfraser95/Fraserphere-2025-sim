@@ -90,7 +90,20 @@ The data streaming part of the system incorporates the following technologies:
 
 
 
-ComponentSpecificationSourceTransmitter10 W VCSEL phased array, 0.01° divergencePrinceton Optronics 2025Amplifier60–100 dB Yb-fiber (cascaded stages)IPG Photonics YAR-100Aperture15 cm (cube face), η=0.8108.7 dB gainWavelength1550 nmTelecom COTSHops100 (1 AU spacing)100 AU reachP_r @ 100 AU–144.3 dBm (direct infeasible; per-hop reset)+6 to +46 dB marginData Rate>1 GbpsAPD BW-limitedPower SourceSolid-state Li-S batteries, 400–500 Wh/kgSolidion TechRadiation Tolerance100 krad with 18–24% capacity lossSimulated per PMC [29]
+| Component           | Specification                                                                 | Source                   |
+|---------------------|-------------------------------------------------------------------------------|--------------------------|
+| Transmitter         | 10 W VCSEL phased array, 0.01° divergence                                    | Princeton Optronics 2025 |
+| Amplifier           | 60–100 dB Yb-fiber (cascaded stages)                                          | IPG Photonics YAR-100    |
+| Aperture            | 15 cm (cube face), η=0.810, 8.7 dB gain                                       |                          |
+| Wavelength          | 1550 nm                                                                       | Telecom COTS             |
+| Hops                | 100 (1 AU spacing), 100 AU reach                                              |                          |
+| P_r @ 100 AU        | –144.3 dBm (direct infeasible; per-hop reset), +6 to +46 dB margin            |                          |
+| Data Rate           | >1 Gbps                                                                       | APD BW-limited           |
+| Power Source        | Solid-state Li-S batteries, 400–500 Wh/kg                                     | Solidion Tech            |
+| Radiation Tolerance | 100 krad with 18–24% capacity loss                                            | Simulated per PMC   |
+
+
+
 Link Budget Methodology
 The received power calculations are based on the Friis transmission equation for free-space optical links:
 $$P_r = P_t \cdot G_t \cdot G_r \cdot \left( \frac{\lambda}{4 \pi d} \right)^2 \cdot \eta$$
