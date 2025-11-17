@@ -143,7 +143,7 @@ All calculations are deterministic (no Monte Carlo) and assume guidance with AI 
 
 ModuleToolOutputBeam PropagationNumPy (Gaussian)15 cm spot @ 1.4 mLink BudgetSymPy/NumPy–104.3 dBm @ 1 AURadiation TransportNumPy (DPA model)0.42% swelling @ 10 kradThermal FEMNumPy (1D solver)ΔT < 8 KError CorrectionPyLDPCBER < 10⁻⁹ post-10 kradISM AttenuationNumPy0.0015–754.4 dB/pcNF AccumulationNumPy (Friis)<0.003 dB degradationLi-S BatteryNumPy (Exponential)18–24% loss @ 100 kradFDTD CoherenceNumPy (Wave sum)99.9% coherenceNeuroSwarms SimTorch95% efficiency @ 10^4 agents
 
-
+Literature Cited
 [1] NASA JPL, "NASA's Optical Comms Demo Transmits Data Over 140 Million Miles", https://www.nasa.gov/missions/psyche-mission/nasas-optical-comms-demo-transmits-data-over-140-million-miles/, 2024.
 [2] B. J. Shastri et al., "Photonics for artificial intelligence and neuromorphic computing", Nature Photonics 15, 102–114 (2021), https://arxiv.org/abs/2011.00111.
 [3] J. T. Wright, "Dyson Spheres", Serbian Astronomical Journal No. 200, 1-18 (2020), https://saj.matf.bg.ac.rs/200/pdf/001-018.pdf.
