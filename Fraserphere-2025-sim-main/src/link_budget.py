@@ -1,4 +1,6 @@
 import numpy as np
+import pandas as pd
+import os
 
 # Report parameters
 c = 3e8  # m/s
@@ -35,3 +37,18 @@ degrad_lin = (NF_lin - 1) / (G_lin - 1)  # Geometric sum ≈ 0.00151
 NF_total_lin = NF_lin + degrad_lin  # 2.5134 (ignores finite hops, but <0.00001 error)
 NF_total_dB = 10 * np.log10(NF_total_lin)  # 4.002 dB
 degradation_dB = NF_total_dB - NF_dB  # 0.002 dB
+
+# Print results
+print(f"P_r_dBm: {P_r_dBm:.2f}")
+print(f"Margin without amp: {margin_no_amp_dB:.2f} dB")
+print(f"Margins with amps [60,80,100 dB]: {[round(m, 2) for m in margins_with_amp]} dB")
+print(f"NF degradation over 100 hops: {degradation_dB:.4f} dB")
+
+# Save to CSV
+os.makedirs("../results/tables", exist_ok=True)
+data = {
+    "Parameter": ["P_r_dBm (1 AU)", "Margin_no_amp_dB", "Margin_60dB_amp", "Margin_80dB_amp", "Margin_100dB_amp", "NF_degradation_dB"],
+    "Value": [P_r_dBm, margin_no_amp_dB] + margins_with_amp + [degradation_dB]
+}
+pd.DataFrame(data).to_csv("../results/tables/link_budget.csv", index=False)
+print("Results saved to ../results/tables/link_budget.csv")
