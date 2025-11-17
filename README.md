@@ -1,5 +1,5 @@
 Fraserphere 2025 Simulation Suite
-DOI: 10.5281/zenodo.13742965
+DOI: 10.4202/fraserphere.13742965
 Paper: Theoretical Feasibility of Fraserphere Photonic Relay Systems for Deep-Space Communication and EM-Coherent Swarm Arrays Enabling Stellar Cognition (2025)
 This repository contains simulations used to validate the Fraserphere photonic relay system for 100 AU deep-space chains, extending to EM-coherent swarm arrays for stellar-scale cognition. The framework uses Python-based tools to model link budgets, beam propagation, radiation effects, thermal management, error correction, ISM/IGM attenuation, noise accumulation, battery resilience, and neuromorphic swarms.
 A word from the author: No idea how patent laws work and there was too much red tape surrounding it where after looking into it I just decided to have fun and publish these findings. Now we can let smarter people come along and make it. So for the sake of publishing all ideas and concepts are considered published and free to use on the condition that I, Kyle Ross Fraser receive accreditation and recognition for my contributions.
